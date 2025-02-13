@@ -1,0 +1,19 @@
+#!bin/bash
+
+export random=$(($RANDOM%100+1)) 
+counter=1
+
+while [ "$counter" -le 5 ]; do
+  read -p "Eeeeee chuslo 1-100 $counter: " uzer
+ if [ "$uzer" -eq "$random" ]; then  
+  echo "Congratulations! You guessed the right number"
+ else 
+  [ "$uzer" -gt "$random" ] && echo "Too high"
+   [ "$uzer" -lt "$random" ] && echo "Too low"
+ fi
+  counter=$((counter+1))
+done 
+
+if [ "$counter" -gt 5 ]; then
+  echo "Sorry, you've run out of attempts. The correct number was $random"
+fi    
